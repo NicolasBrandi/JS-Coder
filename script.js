@@ -21,7 +21,7 @@ toDoList.forEach(function(element,i){
     console.log("This is forEach loop: ",element,i);
 })
 
-//while c
+//while 
 
 const counterOne =1;
 while (counterOne<=10){
