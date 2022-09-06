@@ -42,9 +42,13 @@ function correctUser(user,pass) {
 }
 
 function signIn(userInfo,passInfo){
+    let newFeed = {}
     do{
         if (correctUser(userInfo,passInfo)){
             console.log(facebookFeed);
+            newFeed.userame = userInfo
+            newFeed.topic = prompt(`${userInfo}, what are you thinking about?: `)
+            facebookFeed.push(newFeed)
             correct = 0
         }else {
             alert("Wrong user, pls try again")
