@@ -1,7 +1,7 @@
 let correct
 const database = [
     {
-        username: "nicolas",
+        username: "sofia",
         password: "1234"
     },
     {
@@ -11,21 +11,47 @@ const database = [
     {
         username:"alberto",
         password:"111"
+    },
+    {
+        username:"juliana",
+        password:"111"
+    },
+    {
+        username:"maria",
+        password:"111"
+    },
+    {
+        username:"nicolas",
+        password:"111"
     }
 ];
 
 const facebookFeed = [
     {
-        username: "Juan",
-        topic: "I am learning JS"
+        
+        username: "sofia",
+        topic: "I am learning JS",
+        comments: 12 
+    },
+    {
+        username: "nicolas",
+        topic: "Reading the newspaper",
+        comments:120
     },
     {
         username: "Pedro",
-        topic: "I am having breakfast"
+        topic: "I am having breakfast",
+        comments:55
     },
     {
-        username: "Nicolas",
-        topic: "Reading the newspaper"
+        username: "juliana",
+        topic: "Reading the newspaper",
+        comments:156
+    },
+    {
+        username: "sofia",
+        topic: "Reading the newspaper",
+        comments:12
     }
 ]
 
@@ -46,8 +72,9 @@ function signIn(userInfo,passInfo){
     do{
         if (correctUser(userInfo,passInfo)){
             console.log(facebookFeed);
-            newFeed.userame = userInfo
+            newFeed.username = userInfo
             newFeed.topic = prompt(`${userInfo}, what are you thinking about?: `)
+            newFeed.comments = Math.floor(Math.random()*200)
             facebookFeed.push(newFeed)
             correct = 0
         }else {
@@ -60,4 +87,32 @@ function signIn(userInfo,passInfo){
     
 }
 
+function thereIsFeed(feed,searchName){
+    return feed.some(ele=> ele.username=== searchName)
+}
+//function thereIsFeed(feed,searchName){
+    //feed.forEach(ele => {
+    //    console.log(ele.username)
+    //    console.log(ele.username === searchName)
+        //if (ele.username == searchName){  no funciona, por que?
+        //    return true
+        //}
+    //})
+//}
+
+function searchingFeed(feedSearchName){
+    const searchEle = facebookFeed.filter(ele => ele.username === feedSearchName)
+    console.log(searchEle)
+}
+
 signIn(usernameInfo,passwordInfo);
+
+let feedSearchName = prompt('Would you like to search a friends feed? Select their name: ')
+if(thereIsFeed(facebookFeed,feedSearchName)){
+    searchingFeed(feedSearchName)
+}else{
+    console.log('There is no feed available from this user')
+}
+
+
+
