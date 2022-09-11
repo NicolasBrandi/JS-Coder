@@ -21,6 +21,11 @@ toDoList.forEach(function(element,i){
     console.log("This is forEach loop: ",element,i);
 })
 
+toDoList.forEach((element,i) =>{
+    console.log("This is forEach loop: ",element,i);
+})
+
+
 //while 
 
 const counterOne =1;
@@ -36,3 +41,9 @@ do{
     console.log(counterTwo);
     counterTwo--;
 } while (counterTwo>0);
+
+//for of
+
+for (const ele of toDoList) {
+    console.log(ele)
+}
